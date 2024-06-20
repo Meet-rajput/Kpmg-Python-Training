@@ -1,0 +1,152 @@
+from functools import reduce
+
+def lowerCaseFirst(str1):
+    print(f"initial string = {str1}")
+    lowStr = ""
+    upStr = ""
+    for i in str1:
+        if i.islower():
+            lowStr = lowStr + i
+        else :
+            upStr = upStr + i
+    return lowStr+upStr
+
+def countCharDigitSymbol(str1):
+    charCount=0
+    digitCount=0
+    symbolCount=0
+    for i in str1:
+        if i.isalpha():
+            charCount +=1
+        elif i.isdigit():
+            digitCount +=1
+        else:
+            symbolCount +=1
+    print('Actual String = '+str1)
+    print('\nTotal Count of chars digits and symbols')
+    print(f''' 
+    char = {charCount}
+    digit  {digitCount}
+    symbol= {symbolCount}
+    ''')
+
+def removeEmptyStringFromListOfString(myList):
+    j=0
+    for i in myList:
+        if (i == None) or (i=="") :
+            myList.pop(j)
+        j+=1
+    return myList
+
+def isFirstLastNumSameOfList(myList):
+    print(f"Given List {myList}")
+    lastIndex = len(myList)
+    if lastIndex > 0 :
+        num1 = myList[0]
+        num2 = myList[lastIndex-1]
+        if num1 == num2 :
+            return True    
+            
+    return False
+
+def numDivBy5FromList(myList):
+    print('Number divisible by 5 from list')
+    print('Given List is',myList)
+    for i in myList:
+        if i % 5 == 0 :
+            print(i)
+    
+def countEmma(myStr):
+    print(f"Emma appeared {myStr.count('Emma')} times")
+
+def checkPalindromeNumber(num1) :
+    print(f"Original number {num1}")
+    myStr = str(num1)
+    num2 = int(myStr[::-1])
+    if num1 == num2:
+        print("Yes. given number is palindrome number")
+    else :
+        print("No. given number is not palindrome number")
+
+def extractDigitInReverseOrder(num1):
+    print("Original num",num1)
+    xStr = str(num1)
+    for i in xStr[::-1]:
+        print(i,end=" ")
+
+def first10NaturalNo():
+    i=1
+    print("10 Natural Numbers :")
+    while i <=10 : 
+        print(i, end=" ")
+        i+=1
+
+def calSumTillGivenNo() :
+    pass
+
+def countDigitsInANumber(myNum):
+    xStr = str(myNum)
+    j=0
+    i=len(xStr)
+    while  i > 0 :
+        j+=1
+        i-=1
+    return j
+
+def displayNumberFromList(myList) :
+    for i in myList:
+        if i > 500 :
+            break
+        elif i > 150 :
+            continue
+        if i%5==0 :
+            print(i,end=" ")
+
+def oddIndexlistElemenets(myList):
+    for i in range(1,len(myList),2):
+        print(myList[i], end=" ")
+
+
+
+## Execution Starts Here 
+print("=====================================================")
+print(f"LowerCase First : {lowerCaseFirst('PyThOnIndIA')}")
+print("=====================================================")
+print()
+countCharDigitSymbol("P@#yt26ho^&n5ve")
+print("=====================================================")
+myList =  ["Emma", "Jon", "", "Kelly", None, "Eric", ""]
+print("Original list of string ")
+print(myList)
+print("\n After removing empty strings ")
+print(removeEmptyStringFromListOfString(myList))
+print("=====================================================\n")
+numbers_x = [10, 20, 30, 40, 10]
+numbers_y = [75, 65, 35, 75, 30]
+print('Check if 1st and last number is same of a list')
+print(isFirstLastNumSameOfList(numbers_x),"\n")
+print(isFirstLastNumSameOfList(numbers_y))
+print("=====================================================\n")
+numList = [10, 20, 33, 46, 55]
+numDivBy5FromList(numList)
+print("=====================================================\n")
+countEmma('Emma is good developer. Emma is a writer')
+print("=====================================================\n")
+checkPalindromeNumber(121)
+print()
+checkPalindromeNumber(125)
+print("=====================================================\n")
+extractDigitInReverseOrder(7536)
+print("\n=====================================================\n")
+first10NaturalNo()
+print("\n=====================================================\n")
+inp1 = input("Enter a number for sum of all till given no : ")
+print(reduce(lambda x,y:x+y , range(1,int(inp1)+1)))
+print("\n=====================================================\n")
+print("Display conditional numbers from a list")
+displayNumberFromList([3,10,15,100,150,155,250,900,40,30])
+print("\n=====================================================\n")
+print("Total Digits in a number ")
+print(countDigitsInANumber(75869))
+print("\n=====================================================\n")
+oddIndexlistElemenets([10, 20, 30, 40, 50, 60, 70, 80, 90, 100])
